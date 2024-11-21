@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:50:17 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/19 17:20:19 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:58:43 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 
 char	alpha(unsigned int i, char c)
 {
-	if(c >= 97 && c <= 122)
+	if (c >= 97 && c <= 122)
 		c = c - 32;
-	return(c);
+	return (c);
 }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		len;
-	char	*str;
-	unsigned int	i;
+	unsigned int		i;
+	int			len;
+	char		*str;	
 
 	len = 0;
 	i = 0;
-	while(s[len])
+	while (s[len])
 		len++;
 	str = malloc(len * sizeof(char));
-	while(s[i])
+	while (s[i])
 	{
 		str[i] = (*f)(i, s[i]);
 		i++;
 	}
 	str[i] = '\0';
-	return(str);
+	return (str);
 }
 
 /*int	main(void)

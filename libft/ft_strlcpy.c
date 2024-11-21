@@ -6,13 +6,13 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:27:51 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/14 14:17:48 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/20 13:08:19 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <bsd/string.h>
-//#include <stdio.h>
+//#include <string.h>
+#include <bsd/string.h>
+#include <stdio.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -25,7 +25,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		n++;
 	if (size > 0)
 	{
-		while (i < size - 1)
+		while (i < size - 1 && src[i] != '\0')
 		{
 			dst[i] = src[i];
 			i++;
@@ -41,7 +41,17 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
         char    src [] = "123";
 
         printf("%zu\n", ft_strlcpy(dst, src, 0));
-        //printf("%zu\n", strlcpy(dst, src, 0));
+        printf("%zu\n", strlcpy(dst, src, 0));
         printf("%s", dst);
+	char *str = "BBBB";
+        char buff1[0xF00];
+        char buff2[0xF00];
+ 
+        memset(buff1, 'A', 20);
+        memset(buff2, 'A', 20);
+        strlcpy(buff1, str, sizeof(buff1));
+        ft_strlcpy(buff2, str, sizeof(buff2));
+	printf("%s\n", buff1);
+	printf("%s", buff2);
         return(0);
 }*/

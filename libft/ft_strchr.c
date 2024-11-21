@@ -6,12 +6,12 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:38:25 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/14 16:44:02 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:42:03 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-//#include <stdio.h>
+#include <stdio.h>
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -36,8 +36,10 @@ char	*ft_strchr(const char *str, int c)
 {
 	char    str [] = "hfehgjdlsfdgl";
 	int     c = 'l';
+	char	s[] = "tripouille";
 
         printf("%s\n", ft_strchr(str, c));
         printf("%s\n", strchr(str, c));
+	printf("%s\n", strchr(s, 't' + 256));
         return(0);
 }*/

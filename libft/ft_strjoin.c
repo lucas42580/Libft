@@ -6,14 +6,14 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:52:59 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/19 17:23:59 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/21 11:57:51 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 //#include <stdio.h>
 
-int	my_strlen(const char *str)
+static int	my_strlen(const char *str)
 {
 	int	i;
 
@@ -27,28 +27,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	int		i;
-	int		is1;
-	int		is2;
+	int		j;
 
 	i = 0;
-	is1 = 0;
-	is2 = 0;
-	str = malloc(my_strlen(s1) + my_strlen(s2) * (my_strlen(s1) - 1));
-	if (s1[i] == '\0' || s2[i] == '\0')
+	j = 0;
+	str = malloc(((mystrlen(s1) + my_strlen(s2)) * sizeof(char)) + 1);
+	if (!str)
 		return (NULL);
-	while (i < (my_strlen(s1) + my_strlen(s2) * (my_strlen(s1) - 1)))
+	while (s1[i])
 	{
-		str[i] = s1[is1];
+		str[i] = s1[i];
 		i++;
-		is1++;
-		while (s2[is2] && s1[is1] != '\0')
-		{
-			str[i] = s2[is2];
-			i++;
-			is2++;
-		}
-		is2 = 0;
 	}
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
 	return (str);
 }
 

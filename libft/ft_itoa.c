@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:46:27 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/19 17:19:39 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:35:51 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ char	*ft_itoa(int n)
 	tab = (char *) malloc ((len + 1) * sizeof(char));
 	tab[len] = '\0';
 	len--;
-	if(n == 0)
+	if (n == 0)
 		tab[0] = 48;
-	if(n == -2147483648)
-		return(intlimit(tab, n, len));
+	if (n == -2147483648)
+		return (intlimit(tab, n, len));
 	if (isneg(n) == 1)
 	{
 		tab[0] = '-';
