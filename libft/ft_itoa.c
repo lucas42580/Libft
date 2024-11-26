@@ -6,14 +6,14 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:46:27 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 12:35:51 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/21 16:37:15 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*intlimit(char *tab, int n, int len)
+static char	*intlimit(char *tab, int n, int len)
 {
 	n = 214748364;
 	tab[len] = '8';
@@ -28,23 +28,24 @@ char	*intlimit(char *tab, int n, int len)
 	return (tab);
 }
 
-int	isneg(int n)
+static int	isneg(int n)
 {
 	if (n >= 0)
 		return (0);
 	return (1);
 }
 
-int	nbrlen(int n)
+static int	nbrlen(int n)
 {
 	int	len;
 
 	len = 0;
-	while (n % 10 != 0)
+	while (n / 10 != 0)
 	{
 		len++;
 		n = n / 10;
 	}
+	len++;
 	return (len);
 }
 
@@ -54,7 +55,9 @@ char	*ft_itoa(int n)
 	int		len;
 
 	len = nbrlen(n) + isneg(n);
-	tab = (char *) malloc ((len + 1) * sizeof(char));
+	tab = (char *) malloc (((len) * sizeof(char)) + 1);
+	if (!tab)
+		return (NULL);
 	tab[len] = '\0';
 	len--;
 	if (n == 0)
@@ -66,7 +69,7 @@ char	*ft_itoa(int n)
 		tab[0] = '-';
 		n = n * (-1);
 	}
-	while (n % 10 != 0)
+	while (n % 10 != 0 || (n % 10 == 0 && n > 9))
 	{
 		tab[len] = (n % 10) + '0';
 		n = n / 10;
@@ -77,6 +80,6 @@ char	*ft_itoa(int n)
 
 /*int	main(void)
 {
-	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(1000034));
 	return (0);
 }*/

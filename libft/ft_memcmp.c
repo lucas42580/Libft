@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:02:53 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 16:29:56 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:14:55 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t size)
 {
 	unsigned char	*s1;
 	unsigned char	*s2;
-	int		i;
+	int				i;
 
 	s1 = (unsigned char *)ptr1;
 	s2 = (unsigned char *)ptr2;

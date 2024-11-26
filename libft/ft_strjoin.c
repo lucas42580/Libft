@@ -6,22 +6,13 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:52:59 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/21 11:57:51 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/21 16:37:20 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 //#include <stdio.h>
-
-static int	my_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -31,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	str = malloc(((mystrlen(s1) + my_strlen(s2)) * sizeof(char)) + 1);
+	str = malloc(((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char)) + 1);
 	if (!str)
 		return (NULL);
 	while (s1[i])

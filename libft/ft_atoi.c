@@ -6,12 +6,12 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:48:03 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 17:48:52 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/21 13:50:43 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 static int	mywritenbr(const char	*str, int nb, int i)
 {
@@ -53,7 +53,7 @@ int	ft_atoi(const char *str)
 
 /*int	main(void)
 {
-        char *n = "\e06050";
+        char *n = " -06050-   ";
         printf("%d\n", atoi(n));
         printf("%d\n", ft_atoi(n));
         return(0);

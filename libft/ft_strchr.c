@@ -6,23 +6,23 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:38:25 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 14:42:03 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/25 13:29:53 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int		i;
 	char	*str1;
 
 	i = 0;
-	str1 = (char *) str;
+	str1 = (char *) s;
 	while (str1[i])
 	{
-		if (c == str1[i])
+		if ((char)c == str1[i])
 			return (&str1[i]);
 		else
 			i++;
@@ -32,14 +32,19 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-/*int	main(void)
-{
-	char    str [] = "hfehgjdlsfdgl";
-	int     c = 'l';
-	char	s[] = "tripouille";
+// int	main(void)
+// {
+// 	char    str [] = "hfehgjdlsfdgl";
+// 	int     c = 'l';
+// 	char	s[] = "tripouille";
 
-        printf("%s\n", ft_strchr(str, c));
-        printf("%s\n", strchr(str, c));
-	printf("%s\n", strchr(s, 't' + 256));
-        return(0);
-}*/
+// 	printf("%s\n", ft_strchr(str, c));
+// 	printf("%s\n", strchr(str, c));
+// 	printf("%p\n", ft_strchr("teste", 'e'));
+// 	printf("%p\n", strchr("teste", 'e'));
+// 	printf("%s\n", ft_strchr("teste", '\0'));
+// 	printf("%s\n", strchr("teste", '\0'));
+// 	printf("%s\n", ft_strchr(s, 't' + 256));
+// 	printf("%s\n", strchr(s, 't' + 256));
+// 	return (0);
+// }

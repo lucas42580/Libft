@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:56:23 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 16:24:05 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:15:14 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		i;
+	int				i;
 	unsigned char	*str1;
 	unsigned char	*str2;
 

@@ -6,34 +6,36 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 17:58:35 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/19 18:51:43 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:17:59 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
-void	putalpha(unsigned int i, char *c)
+/*static void	iter(unsigned int i, char *c)
 {
-	if (c[i] >= 97 && c[i] <= 122)
-		c[i] = c[i] - 32;
-}
+	if (*c >= 'a' && *c <= 'z')
+		*c = *c - 32;
+	else if (*c >= 'A' && *c <= 'Z')
+		*c = *c + 32;
+}*/
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
 	i = 0;
 	while (s[i])
 	{
-		(*f)(i, s);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }
 
 /*int	main(void)
 {
-	char 	str [] = "bonjour comment ca va?";
-	ft_striteri(str, putalpha);
+	char 	str [] = "LoReM iPsUm";
+	ft_striteri(str, iter);
 	printf("%s\n", str);
 	return(0);
 }*/

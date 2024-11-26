@@ -6,38 +6,29 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:17:03 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/21 11:36:14 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/25 13:25:28 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 #include <stdlib.h>
-
-static int	my_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	int		i;
+	char		*str;
+	size_t		i;
 
 	i = 0;
-	if (start > my_strlen(s))
+	if (start > ft_strlen(s))
 		len = 0;
-	if (len > my_strlen(s + start))
-		len = mystrlen(s + start);
+	else if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
 	str = (char *) malloc ((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (i < len && (s + start != NULL))
 	{
 		str[i] = s[start];
 		i++;
@@ -47,13 +38,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-/*int	main(void)
-{
-	//printf("%s\n", ft_substr("ABCDEF", 1, 3));
-	//printf("%s\n", ft_substr("ABCDEF", 4, 10));
-	//char *str = "i just want this part #############";
-        //size_t size = 10;
-	//printf("%s\n", ft_substr("***189543***", 4, 6));
-	printf("%s\n", ft_substr("01234", 10, 10));
-	return(0);
-}*/
+// int	main(void)
+// {
+// 	// printf("%s\n", ft_substr("ABCDEF", 1, 3));
+// 	// printf("%s\n", ft_substr("ABCDEF", 4, 10));
+// 	// char *str = "i just want this part #############";
+//         // size_t size = 10;
+// 	// printf("%s\n", ft_substr("***189543***", 4, 6));
+// 	// printf("%s\n", ft_substr("01234", 10, 10));
+// 	printf("%s\n", ft_substr("hola", 4294967295, 0));
+// 	printf("%s\n", ft_substr("", 1, 1));
+// 	return(0);
+// }

@@ -6,14 +6,14 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:50:17 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/19 18:58:43 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:17:26 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-char	alpha(unsigned int i, char c)
+static char	alpha(unsigned int i, char c)
 {
 	if (c >= 97 && c <= 122)
 		c = c - 32;
@@ -22,15 +22,17 @@ char	alpha(unsigned int i, char c)
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int		i;
-	int			len;
-	char		*str;	
+	char			*str;	
+	unsigned int	i;
+	int				len;
 
 	len = 0;
 	i = 0;
 	while (s[len])
 		len++;
-	str = malloc(len * sizeof(char));
+	str = malloc((len * sizeof(char)) + 1);
+	if (!str)
+		return (NULL);
 	while (s[i])
 	{
 		str[i] = (*f)(i, s[i]);

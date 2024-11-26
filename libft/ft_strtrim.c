@@ -6,23 +6,14 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:02:09 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/21 12:43:44 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:17:02 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 //#include <stdio.h>
 //#include <string.h>
-
-static int	mystrlen(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 static int	is_set(char const c, char const *set)
 {
@@ -58,7 +49,7 @@ static int	setright(char const *s1, char const *set)
 	int	i;
 	int	count;
 
-	i = mystrlen(s1) - 1;
+	i = ft_strlen(s1) - 1;
 	count = 0;
 	while ((is_set(s1[i], set)) == 1)
 	{
@@ -76,14 +67,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 
 	i = setleft(s1, set);
-	len = mystrlen(s1) - setright(s1, set) - setleft(s1, set);
-	if(len < 0)
+	len = ft_strlen(s1) - setright(s1, set) - setleft(s1, set);
+	if (len < 0)
 		len = 0;
 	str = malloc ((len * sizeof(char)) + 1);
 	j = 0;
 	if (!str)
 		return (NULL);
-	while (i < (mystrlen(s1) - setright(s1, set)))
+	while (i < (ft_strlen(s1) - setright(s1, set)))
 	{
 		str[j] = s1[i];
 		j++;

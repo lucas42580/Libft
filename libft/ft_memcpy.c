@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:31:44 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 11:57:52 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:19:03 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,27 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	dest1 = (char *)dest;
 	src1 = (const char *)src;
 	i = 0;
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	else
-		while (i < n)
-		{
-			dest1[i] = src1[i];
-			i++;
-		}
-		return (dest1);
+	while (i < n)
+	{
+		dest1[i] = src1[i];
+		i++;
+	}
+	return (dest1);
 }
 
-/*int     main(void)
-{
-        char src[] = "test basic du memcpy !";
-	char buff1[22];
-        char buff2[22];
-        
-        //ft_memcpy(buff1, src, 22);
-        //memcpy(buff2, src, 22);
-	//ft_memcpy(((void*)0), src, 0);
-	//memcpy(((void*)0), ((void*)0), 0);
-	ft_memcpy(((void*)0), "segfaulter tu dois", 17);
+// int     main(void)
+// {
+//         char src[] = "test basic du memcpy !";
+// 	// char buff1[22];
+//         // char buff2[22];
 
-        //printf("%s", buff1);
-	//printf("%s", buff2);
-        return (0);
-}*/
+//         //ft_memcpy(buff1, src, 22);
+//         //memcpy(buff2, src, 22);
+// 	ft_memcpy(((void*)0), ((void*)0), 3);
+// 	memcpy(((void*)0), ((void*)0), 3);
+// 	// ft_memcpy(((void*)0), "segfaulter tu dois", 17);
+
+//         //printf("%s", buff1);
+// 	//printf("%s", buff2);
+//         return (0);
+// }
