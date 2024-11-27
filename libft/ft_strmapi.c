@@ -6,12 +6,12 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:50:17 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/22 12:17:26 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:28:39 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 static char	alpha(unsigned int i, char c)
 {

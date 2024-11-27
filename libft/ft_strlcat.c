@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:31:39 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/25 16:23:45 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:26:56 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 //#include <bsd/string.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t		i;
 	size_t		j;
 	size_t		len;
 
-	i = ft_strlen(dest);
+	i = ft_strlen(dst);
 	j = ft_strlen(src);
 	if (size <= i)
 	{
@@ -33,10 +33,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	j = 0;
 	while (j + i < size - 1 && src[j] != '\0')
 	{
-		dest[i + j] = src[j];
+		dst[i + j] = src[j];
 		j++;
 	}
-	dest[i + j] = '\0';
+	dst[i + j] = '\0';
 	return (len);
 }
 

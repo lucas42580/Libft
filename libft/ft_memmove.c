@@ -6,12 +6,12 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:47:33 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/25 16:21:55 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:22:36 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 static char	*strnotovrlap(unsigned char *d1, const unsigned char *s1, size_t n)
 {

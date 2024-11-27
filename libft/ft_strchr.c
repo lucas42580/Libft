@@ -6,12 +6,12 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:38:25 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/25 13:29:53 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:24:57 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -22,12 +22,11 @@ char	*ft_strchr(const char *s, int c)
 	str1 = (char *) s;
 	while (str1[i])
 	{
-		if ((char)c == str1[i])
+		if ((unsigned char)c == str1[i])
 			return (&str1[i]);
-		else
-			i++;
+		i++;
 	}
-	if (c == '\0' && str1[i] == '\0')
+	if ((unsigned char)c == '\0' && str1[i] == '\0')
 		return (&str1[i]);
 	return (NULL);
 }
@@ -42,8 +41,8 @@ char	*ft_strchr(const char *s, int c)
 // 	printf("%s\n", strchr(str, c));
 // 	printf("%p\n", ft_strchr("teste", 'e'));
 // 	printf("%p\n", strchr("teste", 'e'));
-// 	printf("%s\n", ft_strchr("teste", '\0'));
-// 	printf("%s\n", strchr("teste", '\0'));
+// 	printf("%p\n", ft_strchr("teste", 1024));
+// 	printf("%p\n", strchr("teste", 1024));
 // 	printf("%s\n", ft_strchr(s, 't' + 256));
 // 	printf("%s\n", strchr(s, 't' + 256));
 // 	return (0);

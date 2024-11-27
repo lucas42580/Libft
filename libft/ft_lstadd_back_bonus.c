@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:15:34 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:28:10 by lpaysant         ###   ########.fr       */
+/*   Created: 2024/11/26 15:55:13 by lpaysant          #+#    #+#             */
+/*   Updated: 2024/11/27 15:47:48 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+	t_list	*ptr;
 
-	i = 0;
-	while (s[i] != 0)
-		i++;
-	return (i);
+	if (new == NULL || lst == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	ptr = *lst;
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	ptr->next = new;
 }
-
-/*int	main(void)
-{
-	ft_strlen("salut");
-	printf("%zu\n", ft_strlen("salut"));
-	printf("%lu\n", strlen("salut"));
-	printf("%zu\n", ft_strlen(""));
-	printf("%lu\n", strlen(""));
-        return (0);
-}*/

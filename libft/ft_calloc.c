@@ -6,23 +6,25 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:54:20 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 18:03:22 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:12:16 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 //#include <stdio.h>
 
-void	*ft_calloc(size_t elementcount, size_t elementsize)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*tab;
 	int		i;
 
 	i = 0;
-	tab = malloc (elementcount * elementsize);
+	if (nmemb > 65535 / size)
+		return (NULL);
+	tab = malloc (nmemb * size);
 	if (!tab)
 		return (NULL);
-	while (i < (elementcount * elementsize))
+	while (i < (nmemb * size))
 	{
 		tab[i] = '\0';
 		i++;

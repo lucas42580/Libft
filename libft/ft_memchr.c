@@ -6,14 +6,14 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:39:01 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 16:14:01 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:18:26 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-void	*ft_memchr(const void *buf, int c, size_t count)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	int		i;
 	char	*str;
@@ -21,8 +21,8 @@ void	*ft_memchr(const void *buf, int c, size_t count)
 
 	i = 0;
 	ch = (char)c;
-	str = (char *)buf;
-	while (i < count)
+	str = (char *)s;
+	while (i < n)
 	{
 		if (str[i] == ch)
 			return (&str[i]);

@@ -6,34 +6,34 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:02:53 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/22 12:14:55 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:21:47 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
+//#include <stdio.h>
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*s1;
-	unsigned char	*s2;
+	unsigned char	*str1;
+	unsigned char	*str2;
 	int				i;
 
-	s1 = (unsigned char *)ptr1;
-	s2 = (unsigned char *)ptr2;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	if (size == 0)
+	if (n == 0)
 		return (0);
-	while (i < size)
+	while (i < n)
 	{
-		if (s1[i] == s2[i])
+		if (str1[i] == str2[i])
 			i++;
 		else
-			return (s1[i] - s2[i]);
-		if (i == size)
-			return (s1[i - 1] - s2[i - 1]);
+			return (str1[i] - str2[i]);
+		if (i == n)
+			return (str1[i - 1] - str2[i - 1]);
 	}
-	return (s1[i] - s2[i]);
+	return (str1[i] - str2[i]);
 }
 
 /*int     main(void)

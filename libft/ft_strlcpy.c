@@ -6,13 +6,13 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:27:51 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 13:08:19 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:27:50 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-#include <bsd/string.h>
-#include <stdio.h>
+#include <string.h>
+//#include <bsd/string.h>
+//#include <stdio.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

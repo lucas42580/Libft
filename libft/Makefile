@@ -36,12 +36,27 @@ SRC = \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
+SRCBONUS = \
+	ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c \
+
 OBJ = $(SRC:.c=.o)
+OBJBONUS = $(SRCBONUS:.c=.o)
 
 all : $(NAME)
 
 %.o : %.c
 	$(CC) -o $@ -c $< $(FLAGS)
+
+bonus : $(OBJ) $(OBJBONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJBONUS)
 
 $(NAME) : $(OBJ)
 	ar rcs $@ $^

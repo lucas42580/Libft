@@ -6,25 +6,25 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:37:06 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/22 13:09:35 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:31:33 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+//#include <string.h>
 //#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strrchr(const char *string, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
 	char	*str1;
 
 	i = 0;
-	str1 = (char *)string;
-	i = ft_strlen (string);
-	while (i >= 0 && (char)c != str1[i])
+	str1 = (char *)s;
+	i = ft_strlen (s);
+	while (i >= 0 && (unsigned char)c != str1[i])
 		i--;
-	if ((char)c == str1[i])
+	if ((unsigned char)c == str1[i])
 		return (&str1[i]);
 	return (0);
 }

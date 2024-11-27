@@ -6,7 +6,7 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 10:33:01 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/20 18:03:41 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:25:29 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 //#include <string.h>
 //#include <stdio.h>
 
-char	*ft_strdup(const char *src)
+char	*ft_strdup(const char *s)
 {
 	char	*tab;
 	int		i;
 
 	i = 0;
-	while (src[i])
+	while (s[i])
 		i++;
 	tab = malloc ((i + 1) * sizeof(char));
 	if (!tab)
 		return (NULL);
 	i = 0;
-	while (src[i])
+	while (s[i])
 	{
-		tab[i] = src[i];
+		tab[i] = s[i];
 		i++;
 	}
 	tab[i] = '\0';

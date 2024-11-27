@@ -6,15 +6,15 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:29:43 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/25 19:37:16 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:23:48 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 #include "libft.h"
 
-int	countletter(char const *s, char c)
+static int	countletter(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -33,13 +33,34 @@ int	countletter(char const *s, char c)
 	return (count);
 }
 
-int	countword(char const *s, char c)
+static char	*putword(char const *s, char c)
+{
+	char	*strdup;
+	int		i;
+
+	i = 0;
+	strdup = (char *) malloc((countletter(s, c) + 1) * sizeof(char));
+	if (!strdup)
+	{
+		free(strdup);
+		return (NULL);
+	}
+	while (s[i] != c && s[i] != '\0')
+	{
+		strdup[i] = s[i];
+		i++;
+	}
+	strdup[i] = '\0';
+	return (strdup);
+}
+
+static int	countword(char const *s, char c)
 {
 	int	i;
 	int	count;
 
-	i = 1;
-	count = 1;
+	i = 0;
+	count = 0;
 	while (c == s[i])
 		i++;
 	while (s[i])
@@ -47,79 +68,81 @@ int	countword(char const *s, char c)
 		if (c == s[i] && s[i + 1] != c)
 			count++;
 		i++;
+		if (s[i] == '\0' && s[i - 1] != c)
+			count++;
 	}
 	return (count);
 }
-static char	freestrs(char **tab)
+
+static void	freestrs(char **tab)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i])
+	while (tab[i] != NULL)
 	{
 		free(tab[i]);
 		i++;
 	}
 	free(tab);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	int		i1;
-	int		i2;
-	int		i3;
+	int		j;
 
 	i1 = 0;
-	i2 = 0;
-	i3 = 0;
+	j = 0;
 	strs = (char **) malloc((countword(s, c) + 1) * sizeof (char *));
 	if (!strs)
 		return (NULL);
-	while (i1 < countword(s, c) && (size_t)i3 < ft_strlen(s))
+	while (i1 < countword(s, c) && (size_t)j < ft_strlen(s))
 	{
-		strs[i1] = (char *) malloc((countletter(s + i3, c) + 1) * sizeof(char));
-		if (!strs[i1])
-			return (freestrs(strs));
-		while (s[i3] == c || s[i3] == '\0')
-			i3++;
-		while (s[i3] != c && s[i3] != '\0')
-			strs[i1][i2++] = s[i3++];
-		strs[i1][i2] = '\0';
+		while (s[j] == c)
+			j++;
+		strs[i1] = putword(s + j, c);
+		if (strs[i1] == NULL)
+		{
+			freestrs (strs);
+			return (NULL);
+		}
+		while (s[j] != c && s[j] != '\0')
+			j++;
 		i1++;
-		i2 = 0;
 	}
+	strs[i1] = NULL;
 	return (strs);
 }
 
-int	main(void)
-{
-	int	i = 0;
+// int	main(void)
+// {
+// 	int	i = 0;
 
-	// char	**strs = ft_split("salut    bla     blabla", ' ');
-	// while(strs[i] != NULL)
-	// {
-	// 	printf("%s\n", strs[i]);
-	// 	i++;
-	// 	if(strs[i] == NULL)
-	// 		printf("%s", strs[i]);
-	// }
-	//printf("%s\n", ft_split("", ' ')[0]);
-	/*while(strs[i]  != NULL)
-	{
-		printf("%s\n", strs[i]);
-		i++;
-	}
-	printf("%s", strs[i]);
-	free(strs);*/
+// 	// char	**strs = ft_split("salut    bla     blabla", ' ');
+// 	// while(strs[i] != NULL)
+// 	// {
+// 	// 	printf("%s\n", strs[i]);
+// 	// 	i++;
+// 	// 	if(strs[i] == NULL)
+// 	// 		printf("%s", strs[i]);
+// 	// }
+// 	//printf("%s\n", ft_split("", ' ')[0]);
+// 	/*while(strs[i]  != NULL)
+// 	{
+// 		printf("%s\n", strs[i]);
+// 		i++;
+// 	}
+// 	printf("%s", strs[i]);
+// 	free(strs);*/
 
-	char	**strs = ft_split("  tripouille  42  ", ' ');
-	while (strs[i] != NULL)
-	{
-		printf("%s", strs[i]);
-		i++;
-	}
-	// printf("%s", strs[i]);
-	return(0);
-}
+// 	char	**strs = ft_split("hello!", ' ');
+// 	while (strs[i] != NULL)
+// 	{
+// 		printf("%s\n", strs[i]);
+// 		i++;
+// 	}
+// 	// printf("%s", strs[i]);
+// 	return(0);
+// }

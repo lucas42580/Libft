@@ -6,12 +6,12 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:31:44 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/22 12:19:03 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:22:12 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

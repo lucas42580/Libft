@@ -6,11 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:46:27 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/21 16:37:15 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:21:08 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 
 static char	*intlimit(char *tab, int n, int len)

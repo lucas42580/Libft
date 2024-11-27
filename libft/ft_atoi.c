@@ -6,11 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:48:03 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/21 13:50:43 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:14:21 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+//#include <stdlib.h>
 //#include <stdio.h>
 
 static int	mywritenbr(const char	*str, int nb, int i)
@@ -23,7 +23,7 @@ static int	mywritenbr(const char	*str, int nb, int i)
 	return (nb);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	nb;
@@ -32,21 +32,21 @@ int	ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32 || str[i] == 43
-		|| str[i] == 45 || (str[i] >= 48 && str[i] <= 57))
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ' || nptr[i] == '+'
+		|| nptr[i] == '-' || (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
-		if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		if ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 			i++;
-		if (str[i] == 43 || str[i] == 45)
+		if (nptr[i] == '+' || nptr[i] == '-')
 		{
-			if (str[i] == 45 && sign > 0)
+			if (nptr[i] == '-' && sign > 0)
 				sign = sign * -1;
 			i++;
-			if (!(str[i] >= 48 && str[i] <= 57))
+			if (!(nptr[i] >= '0' && nptr[i] <= '9'))
 				return (0);
 		}
-		if (str[i] >= 48 && str[i] <= 57)
-			return (mywritenbr(str, nb, i) * sign);
+		if (nptr[i] >= '0' && nptr[i] <= '9')
+			return (mywritenbr(nptr, nb, i) * sign);
 	}
 	return (0);
 }

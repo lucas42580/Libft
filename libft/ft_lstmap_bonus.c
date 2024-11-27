@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:15:34 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:28:10 by lpaysant         ###   ########.fr       */
+/*   Created: 2024/11/27 11:35:57 by lpaysant          #+#    #+#             */
+/*   Updated: 2024/11/27 13:54:01 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
+	t_list	*new;
+	t_list	*ptr;
+	t_list	*ptr2;
 
-	i = 0;
-	while (s[i] != 0)
-		i++;
-	return (i);
+	if (lst == NULL)
+		return (NULL);
+	new = NULL;
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		ptr2 = ft_lstnew(f(ptr->content));
+		if (!ptr2)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, ptr2);
+		ptr = ptr->next;
+	}
+	return (new);
 }
-
-/*int	main(void)
-{
-	ft_strlen("salut");
-	printf("%zu\n", ft_strlen("salut"));
-	printf("%lu\n", strlen("salut"));
-	printf("%zu\n", ft_strlen(""));
-	printf("%lu\n", strlen(""));
-        return (0);
-}*/
