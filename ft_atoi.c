@@ -6,14 +6,13 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:48:03 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:14:21 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:12:25 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdlib.h>
-//#include <stdio.h>
+#include "libft.h"
 
-static int	mywritenbr(const char	*str, int nb, int i)
+static int	mywritenbr(const char *str, int nb, int i)
 {
 	while (str[i] >= 48 && str[i] <= 57)
 	{
@@ -51,10 +50,10 @@ int	ft_atoi(const char *nptr)
 	return (0);
 }
 
-/*int	main(void)
-{
-        char *n = " -06050-   ";
-        printf("%d\n", atoi(n));
-        printf("%d\n", ft_atoi(n));
-        return(0);
-}*/
+// int	main(void)
+// {
+//         char *n = " ---06050-   ";
+//         printf("%d\n", atoi(n));
+//         printf("%d\n", ft_atoi(n));
+//         return(0);
+// }

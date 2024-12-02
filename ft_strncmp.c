@@ -6,12 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:56:23 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:28:58 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:06:50 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <stdio.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

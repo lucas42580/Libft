@@ -6,13 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:19:27 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:29:40 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:07:33 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <bsd/string.h>
-//#include <stdio.h>
+#include "libft.h"
 
 static int	islittle(char *big, char *little, int i, size_t len)
 {

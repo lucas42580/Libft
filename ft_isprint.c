@@ -6,12 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:58:22 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:16:22 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:03:47 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <ctype.h>
-#include <stdio.h>*/
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

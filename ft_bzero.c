@@ -6,11 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:17:34 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:10:52 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:11:18 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

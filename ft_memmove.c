@@ -6,12 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:47:33 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:22:36 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:04:53 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <stdio.h>
+#include "libft.h"
 
 static char	*strnotovrlap(unsigned char *d1, const unsigned char *s1, size_t n)
 {
@@ -35,7 +34,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	src1 = (const unsigned char *)src;
 	if (dest == NULL && src == NULL)
 		return (NULL);
-	if (dest1 < src1)
+	if (dest1 <= src1)
 	{
 		strnotovrlap (dest1, src1, n);
 		return ((char *)dest1);

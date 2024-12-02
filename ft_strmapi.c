@@ -6,12 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:50:17 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:28:39 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:06:47 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include <stdio.h>
+#include "libft.h"
 
 static char	alpha(unsigned int i, char c)
 {
@@ -28,6 +27,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	len = 0;
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	while (s[len])
 		len++;
 	str = malloc((len * sizeof(char)) + 1);

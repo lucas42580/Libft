@@ -1,6 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/28 13:25:33 by lpaysant          #+#    #+#              #
+#    Updated: 2024/11/28 13:56:10 by lpaysant         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+.PHONY : clean fclean all re bonus
+
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-CC = gcc
+CC = cc
 SRC = \
 	ft_isalpha.c \
 	ft_isdigit.c \
@@ -36,6 +50,7 @@ SRC = \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
+
 SRCBONUS = \
 	ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
@@ -45,18 +60,18 @@ SRCBONUS = \
 	ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c \
 	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c \
+	ft_lstmap_bonus.c
 
 OBJ = $(SRC:.c=.o)
-OBJBONUS = $(SRCBONUS:.c=.o)
+OBJBONUS = $(SRCBONUS:.c=.o) $(OBJ)
 
 all : $(NAME)
 
-%.o : %.c
+%.o : %.c Makefile libft.h
 	$(CC) -o $@ -c $< $(FLAGS)
 
-bonus : $(OBJ) $(OBJBONUS)
-	ar rcs $(NAME) $(OBJ) $(OBJBONUS)
+bonus : $(OBJBONUS)
+	@$(MAKE) --no-print-directory OBJ="$(OBJBONUS)"
 
 $(NAME) : $(OBJ)
 	ar rcs $@ $^
@@ -66,4 +81,3 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 re : fclean all
-.PHONY : clean fclean all re

@@ -6,13 +6,10 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:31:39 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:26:56 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:06:04 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-//#include <stdio.h>
-//#include <bsd/string.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)

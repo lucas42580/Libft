@@ -6,12 +6,11 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:15:34 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:28:10 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:06:43 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-//#include <stdio.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

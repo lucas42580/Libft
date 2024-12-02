@@ -6,12 +6,10 @@
 /*   By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:29:43 by lpaysant          #+#    #+#             */
-/*   Updated: 2024/11/27 16:23:48 by lpaysant         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:15:36 by lpaysant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include <stdio.h>
 #include "libft.h"
 
 static int	countletter(char const *s, char c)
@@ -39,12 +37,9 @@ static char	*putword(char const *s, char c)
 	int		i;
 
 	i = 0;
-	strdup = (char *) malloc((countletter(s, c) + 1) * sizeof(char));
+	strdup = (char *)malloc((countletter(s, c) + 1) * sizeof(char));
 	if (!strdup)
-	{
-		free(strdup);
 		return (NULL);
-	}
 	while (s[i] != c && s[i] != '\0')
 	{
 		strdup[i] = s[i];
@@ -61,7 +56,7 @@ static int	countword(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	while (c == s[i])
+	while (c == s[i] && s[i])
 		i++;
 	while (s[i])
 	{
@@ -95,7 +90,9 @@ char	**ft_split(char const *s, char c)
 
 	i1 = 0;
 	j = 0;
-	strs = (char **) malloc((countword(s, c) + 1) * sizeof (char *));
+	if (!s)
+		return (NULL);
+	strs = (char **)ft_calloc((countword(s, c) + 1), sizeof(char *));
 	if (!strs)
 		return (NULL);
 	while (i1 < countword(s, c) && (size_t)j < ft_strlen(s))
@@ -104,22 +101,20 @@ char	**ft_split(char const *s, char c)
 			j++;
 		strs[i1] = putword(s + j, c);
 		if (strs[i1] == NULL)
-		{
-			freestrs (strs);
-			return (NULL);
-		}
+			return (freestrs(strs), NULL);
 		while (s[j] != c && s[j] != '\0')
 			j++;
 		i1++;
 	}
-	strs[i1] = NULL;
 	return (strs);
 }
 
 // int	main(void)
 // {
-// 	int	i = 0;
+// 	int		i;
+// 	char	**strs;
 
+// 	i = 0;
 // 	// char	**strs = ft_split("salut    bla     blabla", ' ');
 // 	// while(strs[i] != NULL)
 // 	// {
@@ -128,7 +123,7 @@ char	**ft_split(char const *s, char c)
 // 	// 	if(strs[i] == NULL)
 // 	// 		printf("%s", strs[i]);
 // 	// }
-// 	//printf("%s\n", ft_split("", ' ')[0]);
+// 	// printf("%s\n", ft_split("", ' ')[0]);
 // 	/*while(strs[i]  != NULL)
 // 	{
 // 		printf("%s\n", strs[i]);
@@ -136,13 +131,18 @@ char	**ft_split(char const *s, char c)
 // 	}
 // 	printf("%s", strs[i]);
 // 	free(strs);*/
-
-// 	char	**strs = ft_split("hello!", ' ');
+// 	strs = ft_split("  dd hello!  d ", ' ');
 // 	while (strs[i] != NULL)
 // 	{
 // 		printf("%s\n", strs[i]);
 // 		i++;
 // 	}
+// 	while (i >= 0)
+// 	{
+// 		free(strs[i]);
+// 		i--;
+// 	}
+// 	free(strs);
 // 	// printf("%s", strs[i]);
-// 	return(0);
+// 	return (0);
 // }
