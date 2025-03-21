@@ -6,78 +6,87 @@
 #    By: lpaysant <lpaysant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 13:25:33 by lpaysant          #+#    #+#              #
-#    Updated: 2024/11/28 13:56:10 by lpaysant         ###   ########.fr        #
+#    Updated: 2025/03/21 15:39:59 by lpaysant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY : clean fclean all re bonus
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I./inc -g
 NAME = libft.a
 CC = cc
+SRCDIR = ./src
+SRCIS = $(SRCDIR)/is
+SRCLST = $(SRCDIR)/lst
+SRCMEM = $(SRCDIR)/mem
+SRCPRINT = $(SRCDIR)/print
+SRCSTR = $(SRCDIR)/str
+SRCUTILS = $(SRCDIR)/utils
+OBJDIR = ./obj
 SRC = \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_calloc.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_split.c \
-	ft_strtrim.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_striteri.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c
+	$(SRCIS)/ft_isalpha.c \
+	$(SRCIS)/ft_isdigit.c \
+	$(SRCIS)/ft_isalnum.c \
+	$(SRCIS)/ft_isascii.c \
+	$(SRCIS)/ft_isprint.c \
+	$(SRCLST)/ft_lstnew_bonus.c \
+	$(SRCLST)/ft_lstadd_front_bonus.c \
+	$(SRCLST)/ft_lstsize_bonus.c \
+	$(SRCLST)/ft_lstlast_bonus.c \
+	$(SRCLST)/ft_lstadd_back_bonus.c \
+	$(SRCLST)/ft_lstdelone_bonus.c \
+	$(SRCLST)/ft_lstclear_bonus.c \
+	$(SRCLST)/ft_lstiter_bonus.c \
+	$(SRCLST)/ft_lstmap_bonus.c \
+	$(SRCMEM)/ft_memset.c \
+	$(SRCMEM)/ft_memcpy.c \
+	$(SRCMEM)/ft_memmove.c \
+	$(SRCMEM)/ft_memcmp.c \
+	$(SRCMEM)/ft_memchr.c \
+	$(SRCPRINT)/ft_putchar_fd.c \
+	$(SRCPRINT)/ft_putstr_fd.c \
+	$(SRCPRINT)/ft_putendl_fd.c \
+	$(SRCPRINT)/ft_putnbr_fd.c \
+	$(SRCPRINT)/ft_printf.c \
+	$(SRCPRINT)/printfunction.c \
+	$(SRCSTR)/ft_strlen.c \
+	$(SRCSTR)/ft_strlcpy.c \
+	$(SRCSTR)/ft_strlcat.c \
+	$(SRCSTR)/ft_strchr.c \
+	$(SRCSTR)/ft_strrchr.c \
+	$(SRCSTR)/ft_strncmp.c \
+	$(SRCSTR)/ft_strnstr.c \
+	$(SRCSTR)/ft_calloc.c \
+	$(SRCSTR)/ft_strdup.c \
+	$(SRCSTR)/ft_substr.c \
+	$(SRCSTR)/ft_strjoin.c \
+	$(SRCSTR)/ft_split.c \
+	$(SRCSTR)/ft_strtrim.c \
+	$(SRCSTR)/ft_bzero.c \
+	$(SRCSTR)/ft_strmapi.c \
+	$(SRCSTR)/ft_striteri.c \
+	$(SRCSTR)/get_next_line.c \
+	$(SRCSTR)/get_next_line_utils.c \
+	$(SRCUTILS)/ft_toupper.c \
+	$(SRCUTILS)/ft_tolower.c \
+	$(SRCUTILS)/ft_atoi.c \
+	$(SRCUTILS)/ft_itoa.c
 
-SRCBONUS = \
-	ft_lstnew_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c
+OBJ = $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
 
-OBJ = $(SRC:.c=.o)
-OBJBONUS = $(SRCBONUS:.c=.o) $(OBJ)
+all : $(OBJDIR) $(NAME)
 
-all : $(NAME)
-
-%.o : %.c Makefile libft.h
-	$(CC) -o $@ -c $< $(FLAGS)
-
-bonus : $(OBJBONUS)
-	@$(MAKE) --no-print-directory OBJ="$(OBJBONUS)"
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
 
 $(NAME) : $(OBJ)
 	ar rcs $@ $^
 
+$(OBJDIR)/%.o : $(SRCDIR)/**/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean :
-	rm -rf *.o
+	rm -rf $(OBJDIR)
 fclean : clean
 	rm -f $(NAME)
 re : fclean all
